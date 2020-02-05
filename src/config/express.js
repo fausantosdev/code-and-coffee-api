@@ -5,7 +5,12 @@ const morgan = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
+const users = require('../app/routes/user')
+
 const app = express()
+
+// Connection
+require('./mongoose')
 
 // Config
 app.use(cors())
@@ -16,7 +21,7 @@ app.use(bodyParser.json())
 // Routes
 app.get('/', (req, res) => {
   return res.json({
-    "name": "Semana OmniStack 0.9",
+    "name": "Api para a aplicação Code and Coffee",
     "version": "0.1",
     "author": [
       {
@@ -29,6 +34,8 @@ app.get('/', (req, res) => {
     ]
   })
 })
+
+app.use('/users', users)
 
 app.set('port', process.env.PORT)
 
