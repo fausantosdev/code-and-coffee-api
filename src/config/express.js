@@ -6,6 +6,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const users = require('../app/routes/user')
+const spot = require('../app/routes/spot')
 
 const app = express()
 
@@ -36,6 +37,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/users', users)
+app.use('/spot', spot)
 
 app.set('port', process.env.PORT)
 
