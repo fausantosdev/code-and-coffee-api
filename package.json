@@ -4,7 +4,7 @@
   "description": "Code and coffee",
   "main": "src/index.js",
   "scripts": {
-    "test": "node src/index",
+    "start": "node src/index",
     "dev": "nodemon src/index"
   },
   "repository": {
