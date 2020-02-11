@@ -15,10 +15,10 @@ const app = express()
 require('./mongoose')
 
 // Config
-app.use(cors({
-  origin: 'https://dev-radar-api-0.herokuapp.com',
+app.use(cors(/*{
+  origin: 'https://code-and-coffee-web.herokuapp.com',
   optionsSuccessStatus: 200
-}))
+}*/))
 app.use(morgan('short'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
