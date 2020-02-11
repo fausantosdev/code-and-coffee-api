@@ -22,8 +22,7 @@ const SpotSchema = new mongoose.Schema({
     required: true
   }
 }, {
-  timestamps: true
-}, {
+  timestamps: true,
   toJSON: {
     virtuals: true
   }
