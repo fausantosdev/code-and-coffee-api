@@ -23,7 +23,7 @@ app.use(morgan('short'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
+app.use('/files', express.static(path.resolve(__dirname, '..', '..', 'uploads')))
 
 // Routes
 app.get('/', (req, res) => {
