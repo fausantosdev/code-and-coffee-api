@@ -4,6 +4,7 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const path = require('path')
 
 const users = require('../app/routes/user')
 const spot = require('../app/routes/spot')
@@ -21,6 +22,8 @@ app.use(cors({
 app.use(morgan('short'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
 
 // Routes
 app.get('/', (req, res) => {
