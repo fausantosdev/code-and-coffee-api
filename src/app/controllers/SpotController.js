@@ -15,24 +15,20 @@ module.exports = {
     const { company, techs, price } = req.body
     const { user_id } = req.headers
 
-    try {
-      const user = await User.findById(user_id)
-      if (!user) {
-        res.status(400).json({ error: true })
-      }
-
-      const spot = await Spot.create({
-        user: user_id,
-        thumbnail: filename,
-        company,
-        techs: techs.split(',').map(tech => tech.trim()),
-        price
-      })
-
-      res.json(spot)
-    } catch (err) {
-      res.json({ res: false })
+    const user = await User.findById(user_id)
+    if (!user) {
+      res.status(400).json({ error: true })
     }
+
+    const spot = await Spot.create({
+      user: user_id,
+      thumbnail: filename,
+      company,
+      techs: techs.split(',').map(tech => tech.trim()),
+      price
+    })
+
+    res.json(spot)
 
   }
 }
