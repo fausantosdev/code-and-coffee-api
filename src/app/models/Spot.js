@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+const localhost = 'http://localhost:3000'
+const serverhost = 'https://code-and-coffee-api.herokuapp.com/'
+
 const SpotSchema = new mongoose.Schema({
   thumbnail: {
     type: String,
@@ -29,7 +32,7 @@ const SpotSchema = new mongoose.Schema({
 })
 
 SpotSchema.virtual('thumbnail_url').get(function () {
-  return `http://localhost:3000/files/${this.thumbnail}`
+  return `${serverhost}/files/${this.thumbnail}`
 })
 
-module.exports = mongoose.model('Spot', SpotSchema) 
+module.exports = mongoose.model('Spot', SpotSchema)
