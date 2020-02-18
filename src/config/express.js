@@ -15,10 +15,10 @@ const app = express()
 require('./mongoose')
 
 // Config
-app.use(cors(/*{
+app.use(cors())/*{
   origin: 'https://code-and-coffee-web.herokuapp.com',
   optionsSuccessStatus: 200
-}*/))
+}*///))
 app.use(morgan('short'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
   })
 })
 
-app.use('/users', users)
+app.use('/user', users)
 app.use('/spot', spot)
 
 app.set('port', process.env.PORT)
