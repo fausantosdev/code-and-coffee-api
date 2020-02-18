@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const localhost = 'http://localhost:3000'
-const serverhost = 'https://code-and-coffee-api.herokuapp.com/'
+const serverhost = 'https://code-and-coffee-api.herokuapp.com'
 
 const SpotSchema = new mongoose.Schema({
   thumbnail: {
