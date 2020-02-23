@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   res.send("OK!")
 })
 
-router.post('/session', SessionController.store)
+router.post('/new', SessionController.store)
 
 router.put('/', (req, res) => {
   res.send("OK!")

@@ -8,6 +8,7 @@ const path = require('path')
 
 const users = require('../app/routes/user')
 const spot = require('../app/routes/spot')
+const session = require('../app/routes/session')
 
 const app = express()
 
@@ -42,6 +43,7 @@ app.get('/', (req, res) => {
   })
 })
 
+app.use('/session', session)
 app.use('/user', users)
 app.use('/spot', spot)
 

@@ -1,5 +1,7 @@
 const User = require('../models/User')
 
+const errors = {}
+
 module.exports = {
   async store(req, res) {
 
@@ -7,14 +9,12 @@ module.exports = {
 
     let user = await User.findOne({ email })
 
-    if (!user) {
-      user = await User.create({ email })
+    if(user == null){
+       user = await User.create(req.body)
+
+       return res.json(user)
     }
 
     return res.json(user)
-  },
-
-  index(req, res) {
-
   }
 }
